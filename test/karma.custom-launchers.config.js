@@ -74,14 +74,6 @@ const customLaunchers = {
     browser: 'edge',
     os_version: '10',
   },
-  bs_win10_firefox_60: {
-    base: 'BrowserStack',
-    device: null,
-    os: 'Windows',
-    browser_version: '60.0',
-    browser: 'firefox',
-    os_version: '10',
-  },
   bs_win10_firefox_70: {
     base: 'BrowserStack',
     device: null,
@@ -127,6 +119,14 @@ const customLaunchers = {
     device: null,
     os: 'Windows',
     browser_version: '120.0',
+    browser: 'firefox',
+    os_version: '11',
+  },
+  bs_win10_firefox_125: {
+    base: 'BrowserStack',
+    device: null,
+    os: 'Windows',
+    browser_version: '125.0',
     browser: 'firefox',
     os_version: '11',
   },
@@ -186,6 +186,14 @@ const customLaunchers = {
     browser: 'chrome',
     os_version: '11',
   },
+  bs_win10_chrome_124: {
+    base: 'BrowserStack',
+    device: null,
+    os: 'Windows',
+    browser_version: '124.0',
+    browser: 'chrome',
+    os_version: '11',
+  },
 };
 
 const getAllBrowsers = () => Object.keys(customLaunchers);
@@ -193,12 +201,12 @@ const getRandomBrowser = () => sample(getAllBrowsers());
 
 /**
  * Environment variables are passed into the script and the depth of testing
- * is affected accordginly.
+ * is affected accordingly.
  *
  * - Whenever on a PR we only want to probe test with Firefox
  * - Whenever we are on the most recent node version on GitHub Actions we test via BrowserStack
  * - If none of the prior mentioned holds we assume to be running local and respect the passed
- *   in borwsers argv
+ *   in browsers argv
  */
 const shouldProbeOnly = argv.shouldProbeOnly === 'true';
 const shouldTestOnBrowserStack = argv.shouldTestOnBrowserStack === 'true';
